@@ -14,8 +14,13 @@ interface DashboardClientProps {
 }
 
 export function DashboardClient({ initialTopics }: DashboardClientProps) {
-  const [topics, setTopics] = useState<PrepTopic[]>(initialTopics);
-  const [filteredTopics, setFilteredTopics] = useState<PrepTopic[]>(initialTopics);
+ const [topics, setTopics] = useState<PrepTopic[]>(
+  Array.isArray(initialTopics) ? initialTopics : []
+);
+
+const [filteredTopics, setFilteredTopics] = useState<PrepTopic[]>(
+  Array.isArray(initialTopics) ? initialTopics : []
+);
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
   const [statusFilter, setStatusFilter] = useState<string>('all');

@@ -4,16 +4,34 @@ import type { PrepTopic } from '@/lib/api';
 import { Card } from '@/components/ui/card';
 
 interface SummaryStatsProps {
-  topics: PrepTopic[];
+  topics?: PrepTopic[];
 }
 
 export function SummaryStats({ topics }: SummaryStatsProps) {
-  const totalTopics = topics.length;
-  const topicsInProgress = topics.filter(t => t.status === 'In Progress').length;
-  const topicsRevised = topics.filter(t => t.status === 'Revised').length;
-  const averageConfidence = topics.length
-    ? Math.round((topics.reduce((sum, t) => sum + t.confidenceLevel, 0) / topics.length) * 100) / 100
-    : 0;
+  // Always ensure safe array
+  const safeTopics = Array.isArray(topics) ? topics : [];
+
+  const totalTopics = safeTopics.length;
+
+  const topicsInProgress = safeTopics.filter(
+    (t) => t.status === 'In Progress'
+  ).length;
+
+  const topicsRevised = safeTopics.filter(
+    (t) => t.status === 'Revised'
+  ).length;
+
+  const averageConfidence =
+    safeTopics.length > 0
+      ? Math.round(
+          (safeTopics.reduce(
+            (sum, t) => sum + (t.confidenceLevel || 0),
+            0
+          ) /
+            safeTopics.length) *
+            100
+        ) / 100
+      : 0;
 
   const stats = [
     {

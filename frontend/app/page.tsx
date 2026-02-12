@@ -10,19 +10,24 @@ import { Loader2 } from 'lucide-react';
 export default function Page() {
   const [topics, setTopics] = useState<PrepTopic[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Fetch topics on component mount
-    api.getTopics().then(data => {
-      setTopics(data);
-      setIsLoading(false);
-    }).catch(err => {
-      console.error('Failed to fetch topics:', err);
-      setError('Failed to load topics. Please check if the backend server is running.');
-      setIsLoading(false);
-    });
+    const fetchTopics = async () => {
+      try {
+        const data = await api.getTopics();
+        setTopics(Array.isArray(data) ? data : []);
+      } catch (err) {
+        console.error('Failed to fetch topics:', err);
+        setError(
+          'Failed to load topics. Please check if the backend server is running.'
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchTopics();
   }, []);
 
   if (isLoading) {
@@ -42,7 +47,9 @@ export default function Page() {
         <Navbar />
         <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 flex items-center justify-center min-h-screen">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-gray-900">Connection Error</h2>
+            <h2 className="text-2xl font-bold text-gray-900">
+              Connection Error
+            </h2>
             <p className="mt-2 text-gray-600">{error}</p>
             <button
               onClick={() => window.location.reload()}
@@ -60,12 +67,10 @@ export default function Page() {
     <>
       <Navbar />
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        {/* Summary Stats */}
         <div className="mb-8">
           <SummaryStats topics={topics} />
         </div>
 
-        {/* Interactive Dashboard Client Component */}
         <DashboardClient initialTopics={topics} />
       </main>
     </>
