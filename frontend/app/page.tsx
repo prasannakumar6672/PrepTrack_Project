@@ -18,7 +18,6 @@ export default function Page() {
         const data = await api.getTopics();
         setTopics(Array.isArray(data) ? data : []);
       } catch (err) {
-        console.error('Failed to fetch topics:', err);
         setError(
           'Failed to load topics. Please check if the backend server is running.'
         );

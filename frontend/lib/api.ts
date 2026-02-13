@@ -2,13 +2,13 @@ export interface PrepTopic {
   _id: string;
   title: string;
   category:
-    | 'DSA'
-    | 'DBMS'
-    | 'OS'
-    | 'CN'
-    | 'System Design'
-    | 'Projects'
-    | 'HR';
+  | 'DSA'
+  | 'DBMS'
+  | 'OS'
+  | 'CN'
+  | 'System Design'
+  | 'Projects'
+  | 'HR';
   status: 'Not Started' | 'In Progress' | 'Revised';
   confidenceLevel: number;
   lastRevisedDate: string;
@@ -19,13 +19,13 @@ export interface PrepTopic {
 
 /**
  * Base URL handling
- * NEXT_PUBLIC_API_URL should be:
- * https://preptrack-project.onrender.com
+ * NEXT_PUBLIC_API_URL must be defined in .env.local or production environment
  */
-const BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+if (!process.env.NEXT_PUBLIC_API_URL) {
+  throw new Error('NEXT_PUBLIC_API_URL is not defined');
+}
 
-const API_BASE_URL = `${BASE_URL}/api/prep-topics`;
+const API_BASE_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/prep-topics`;
 
 class ApiError extends Error {
   constructor(public status: number, message: string) {

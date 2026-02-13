@@ -14,13 +14,13 @@ interface DashboardClientProps {
 }
 
 export function DashboardClient({ initialTopics }: DashboardClientProps) {
- const [topics, setTopics] = useState<PrepTopic[]>(
-  Array.isArray(initialTopics) ? initialTopics : []
-);
+  const [topics, setTopics] = useState<PrepTopic[]>(
+    Array.isArray(initialTopics) ? initialTopics : []
+  );
 
-const [filteredTopics, setFilteredTopics] = useState<PrepTopic[]>(
-  Array.isArray(initialTopics) ? initialTopics : []
-);
+  const [filteredTopics, setFilteredTopics] = useState<PrepTopic[]>(
+    Array.isArray(initialTopics) ? initialTopics : []
+  );
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
   const [statusFilter, setStatusFilter] = useState<string>('all');
@@ -77,7 +77,7 @@ const [filteredTopics, setFilteredTopics] = useState<PrepTopic[]>(
       setTopics((prev) => prev.filter((t) => t._id !== deleteId));
       setDeleteId(null);
     } catch (error) {
-      console.error('Failed to delete topic:', error);
+      // Silent error or toast notification would be better here
     } finally {
       setIsDeleting(false);
     }
