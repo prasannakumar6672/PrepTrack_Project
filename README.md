@@ -8,8 +8,7 @@
 🔹 **Frontend (Vercel)**  
 https://prep-track-project.vercel.app  
 
-🔹 **Backend API (Render)**  
-https://preptrack-project.onrender.com  
+ 
 
 ---
 
