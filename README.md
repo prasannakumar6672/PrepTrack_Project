@@ -1,196 +1,169 @@
-🚀 PrepTrack
-Full-Stack Interview Preparation Tracker
+# 🚀 PrepTrack  
+### Full-Stack Interview Preparation Tracker  
 
+---
 
+## 🌐 Live Application
 
+🔹 **Frontend (Vercel)**  
+https://prep-track-project.vercel.app  
 
+🔹 **Backend API (Render)**  
+https://preptrack-project.onrender.com  
 
+---
 
+## 📌 About The Project
 
+**PrepTrack** is a cloud-deployed full-stack web application designed to help users systematically manage and track their interview preparation topics.
 
-🌐 Live Application
+The application enables users to:
 
-🔹 Frontend: https://prep-track-project.vercel.app
+- Create interview preparation topics  
+- Track learning progress  
+- Update confidence levels  
+- Filter and sort topics  
+- View summary analytics  
+- Store data persistently in the cloud  
 
-🔹 Backend API: https://preptrack-project.onrender.com
+This project demonstrates real-world full-stack development, REST API integration, environment-based configuration, and cloud deployment.
 
-📌 About The Project
+---
 
-PrepTrack is a full-stack web application that helps users manage and track their interview preparation topics in a structured way.
+## 🏗️ Tech Stack
 
-It enables:
+### 🎨 Frontend
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- PNPM
+- Hosted on **Vercel**
 
-Creating preparation topics
+### ⚙️ Backend
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- RESTful API architecture
+- Hosted on **Render**
 
-Tracking learning progress
+### 🗄 Database
+- MongoDB Atlas (Cloud)
 
-Updating confidence levels
+---
 
-Filtering & sorting topics
+## ✨ Key Features
 
-Viewing summary analytics
+### 🔹 Core Functionality
+- Full CRUD operations (Create, Read, Update, Delete)
+- Persistent cloud database storage
+- Environment-based configuration
+- Secure and production-ready CORS handling
 
-Cloud-based persistent storage
+### 🔹 Smart Dashboard
+- Total topics counter
+- Topics in progress
+- Revised topics
+- Average confidence score calculation
 
-This project demonstrates full-stack development, REST API design, cloud deployment, and production debugging.
+### 🔹 Advanced Controls
+- Search by title
+- Filter by category
+- Filter by status
+- Sort by:
+  - Newest
+  - Oldest
+  - Confidence level
+  - Recently revised
 
-🏗️ Tech Stack
-🎨 Frontend
+---
 
-Next.js (App Router)
+## 🧠 Architecture Overview
 
-TypeScript
-
-Tailwind CSS
-
-PNPM
-
-Hosted on Vercel
-
-⚙️ Backend
-
-Node.js
-
-Express.js
-
-MongoDB (Mongoose)
-
-RESTful APIs
-
-Hosted on Render
-
-🗄 Database
-
-MongoDB Atlas (Cloud)
-
-✨ Features
-🔹 Core Functionality
-
-Full CRUD Operations
-
-Persistent cloud database
-
-Environment-based configuration
-
-Production-ready CORS handling
-
-🔹 Smart Dashboard
-
-Total Topics Counter
-
-Topics In Progress
-
-Revised Topics
-
-Average Confidence Score
-
-🔹 Advanced Controls
-
-Search by title
-
-Filter by category
-
-Filter by status
-
-Sort by:
-
-Newest
-
-Oldest
-
-Confidence
-
-Recently Revised
-
-🧠 Architecture Overview
 Frontend (Next.js)
-        ↓
-REST API (Express)
-        ↓
+↓
+REST API (Express.js)
+↓
 MongoDB Atlas
 
-API layer centralized in frontend/lib/api.ts
 
-Strict environment variable usage
+**Highlights:**
+- Centralized API layer (`frontend/lib/api.ts`)
+- Environment-driven configuration
+- No hardcoded backend URLs
+- Clear separation of frontend + backend logic
 
-No hardcoded backend URLs
+---
 
-Production-safe configuration
+---
 
-📂 Project Structure
-PrepTrack_Project/
-│
-├── backend/
-│   ├── config/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   └── server.js
-│
-├── frontend/
-│   ├── app/
-│   ├── components/
-│   ├── lib/
-│   └── styles/
-🚀 Local Development Setup
-1️⃣ Clone Repository
+## 🚀 Local Development Setup
+
+### 1️⃣ Clone Repository
+
 git clone https://github.com/prasannakumar6672/PrepTrack_Project.git
+
 cd PrepTrack_Project
-2️⃣ Backend Setup
-cd backend
-npm install
 
-Create .env:
 
+---
+
+### 2️⃣ Backend Setup
+ cd backend
+ npm install
+
+ 
+Create `.env` in backend folder:
 MONGODB_URI=your_mongodb_connection_string
 PORT=5000
 
-Run backend:
 
-npm start
-3️⃣ Frontend Setup
-cd ../frontend
+Start backend:
+
+---
+
+### 3️⃣ Frontend Setup
+
+Open a new terminal:
+cd frontend
 pnpm install
 
-Create .env.local:
-
+Create `.env.local` in frontend folder:
 NEXT_PUBLIC_API_URL=http://localhost:5000
 
-Run frontend:
+Start frontend:
+ pnpm dev
+ 
+---
 
-pnpm dev
-🌍 Deployment Details
-🔹 Backend (Render)
+## 🌍 Deployment Details
 
-MongoDB Atlas connected
+### 🔹 Backend (Render)
+- Connected to MongoDB Atlas
+- Environment variables configured securely
+- CORS configured for production domain
 
-Environment variables configured
+### 🔹 Frontend (Vercel)
+Production environment variable:
 
-CORS configured for production domain
+---
 
-🔹 Frontend (Vercel)
+## 📈 What This Project Demonstrates
 
-Environment Variable:
+- Full-stack REST API integration  
+- Cloud deployment workflow  
+- Environment configuration handling  
+- CORS debugging in production  
+- MongoDB Atlas integration  
+- Real-world deployment issue resolution  
 
-NEXT_PUBLIC_API_URL=https://preptrack-project.onrender.com
-📈 What This Project Demonstrates
+---
 
-Full-stack REST API integration
+## 👨‍💻 Author
 
-Cloud deployment workflow
+**Prasanna Kumar**  
+B.Tech CSE (AI & ML)  
 
-CORS debugging in production
+🔗 GitHub: https://github.com/prasannakumar6672  
+🔗 LinkedIn: https://www.linkedin.com/in/prashuyadav360  
 
-Environment-based configuration
 
-MongoDB Atlas integration
-
-Real-world deployment issue resolution
-
-👨‍💻 Author
-
-Prasanna Kumar
-B.Tech CSE (AI & ML)
-
-GitHub: https://github.com/prasannakumar6672
